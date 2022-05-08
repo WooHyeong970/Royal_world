@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -9,55 +10,67 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     bool isCount = false;
 
-    public LayerMask enemy;
-    public LayerMask town;
-    public LayerMask field;
+    enum State
+    {
+        IDLE,
+        MOVE,
+        FIGHT,
+        ENTER,
+    };
+    [SerializeField]
+    State state;
+
+    Transform curPos;
+    Vector3 nextPos;
 
     private void Start()
     {
+        state = State.IDLE;
         agent = GetComponent<NavMeshAgent>();
-        agent.stoppingDistance = 3.0f;
+        curPos = agent.transform;
+        nextPos = agent.transform.position;
     }
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, enemy))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
+                curPos = agent.transform;
+                nextPos = new Vector3(hit.point.x, 0.5f, hit.point.z);
+                if(hit.transform.gameObject.layer == 6)
+                {
+                    state = State.FIGHT;              
+                }
+                else if(hit.transform.gameObject.layer == 7)
+                {
+                    state = State.ENTER;
+                }
+                else
+                {
+                    state = State.MOVE;
+                }
                 agent.SetDestination(hit.point);
-                isCount = true;
             }
-            else if (Physics.Raycast(ray, out hit, Mathf.Infinity, town))
-            {
-                agent.SetDestination(hit.point);
-                isCount = false;
-            }
-            else if(Physics.Raycast(ray, out hit, Mathf.Infinity, field))
-            {
-                agent.SetDestination(hit.point);
-                isCount = false;
-            }
-        }
-
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            Test();
-        }
+        }  
     }
+
     private void LateUpdate()
     {
-        if(agent.isStopped)
+        if(Vector3.Distance(curPos.position, nextPos) < 0.1f)
         {
-            Debug.Log("is Stopped");
-        }
-    }
+            if(state == State.FIGHT)
+            {
 
-    public void Test()
-    {
-        agent.Stop();
-        
+            }
+            else if(state == State.ENTER)
+            {
+                SceneManager.LoadScene(2);
+                state = State.IDLE;
+            }
+        }
     }
 }
