@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    GameObject g;
     public Transform target;
     [SerializeField]
     private float speed;

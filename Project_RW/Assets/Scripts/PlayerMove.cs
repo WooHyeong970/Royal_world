@@ -29,6 +29,7 @@ public class PlayerMove : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         curPos = agent.transform;
         nextPos = agent.transform.position;
+        Instantiate
     }
 
     private void Update()
