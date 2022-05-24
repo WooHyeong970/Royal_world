@@ -197,7 +197,7 @@
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb","enqueuedNodeIndex":196,"enqueueingNodeAnnotation":"ScriptAssemblies","enqueueingNodeIndex":4}
 {"msg":"nodeRetryBuild","annotation":"Csc Library/Bee/artifacts/200b0aEDbg.dag/Assembly-CSharp.dll (+2 others)","index":159}
 {"msg":"runNodeAction","annotation":"Csc Library/Bee/artifacts/200b0aEDbg.dag/Assembly-CSharp.dll (+2 others)","index":159}
-{"msg":"noderesult","processed_node_count":192,"number_of_nodes_ever_queued":196,"annotation":"Csc Library/Bee/artifacts/200b0aEDbg.dag/Assembly-CSharp.dll (+2 others)","index":159,"exitcode":0,"outputfile":"Library/Bee/artifacts/200b0aEDbg.dag/Assembly-CSharp.dll","stdout":"Assets/Scripts/PlayerMove.cs(11,10): warning CS0414: The field 'PlayerMove.isCount' is assigned but its value is never used"}
+{"msg":"noderesult","processed_node_count":192,"number_of_nodes_ever_queued":196,"annotation":"Csc Library/Bee/artifacts/200b0aEDbg.dag/Assembly-CSharp.dll (+2 others)","index":159,"exitcode":0,"outputfile":"Library/Bee/artifacts/200b0aEDbg.dag/Assembly-CSharp.dll"}
 {"msg":"inputSignatureChanged","annotation":"CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll","index":195,"changes":[{"key":"InputFileList","value":["Library/Bee/artifacts/200b0aEDbg.dag/Assembly-CSharp.dll"],"oldvalue":[],"dependency":"explicit"}]}
 {"msg":"runNodeAction","annotation":"CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll","index":195}
 {"msg":"inputSignatureChanged","annotation":"CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb","index":196,"changes":[{"key":"InputFileList","value":["Library/Bee/artifacts/200b0aEDbg.dag/Assembly-CSharp.pdb"],"oldvalue":[],"dependency":"explicit"}]}

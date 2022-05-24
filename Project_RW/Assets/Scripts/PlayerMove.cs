@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PlayerMove : MonoBehaviour
 {
     NavMeshAgent agent;
     [SerializeField]
-    bool isCount = false;
+    //bool isCount = false;
 
     enum State
     {
@@ -35,6 +36,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            if (IsPointerOverUIObject()) return;
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
@@ -64,7 +66,9 @@ public class PlayerMove : MonoBehaviour
         {
             if(state == State.FIGHT)
             {
-
+                state = State.IDLE;
+                Debug.Log("is FIGHT");
+                GameManager.Instance.Ready();
             }
             else if(state == State.ENTER)
             {
@@ -72,5 +76,14 @@ public class PlayerMove : MonoBehaviour
                 state = State.IDLE;
             }
         }
+    }
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 }
