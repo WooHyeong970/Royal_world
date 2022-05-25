@@ -67,7 +67,6 @@ public class PlayerMove : MonoBehaviour
             if(state == State.FIGHT)
             {
                 state = State.IDLE;
-                Debug.Log("is FIGHT");
                 GameManager.Instance.Ready();
             }
             else if(state == State.ENTER)

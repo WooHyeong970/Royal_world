@@ -342,6 +342,8 @@
 "Assets/Scripts/CameraMovement.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/PlayerMove.cs"
+"Assets/Scripts/ResourceManager.cs"
+"Assets/Scripts/SpawnManager.cs"
 "Assets/Scripts/UIManager.cs"
 -langversion:9.0
 

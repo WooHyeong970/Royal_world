@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
 
     public Image ready_pn;
     public Text ready_txt;
+    public GameObject rangeOjbect;
+
+    ResourceManager _resource = new ResourceManager();
+    SpawnManager _spawn = new SpawnManager();
 
     private void Awake()
     {
@@ -35,7 +39,6 @@ public class GameManager : MonoBehaviour
 
     public void Ready()
     {
-        Debug.Log("is Ready");
         ready_pn.gameObject.SetActive(true);
         StartCoroutine("ready_time");
     }
@@ -52,5 +55,22 @@ public class GameManager : MonoBehaviour
         }
         ready_pn.gameObject.SetActive(false);
         SceneManager.LoadScene(3);
+    }
+
+    public void Fight()
+    {
+        StartCoroutine("spawnMonster");
+    }
+
+    IEnumerator spawnMonster()
+    {
+        int cnt = 10;
+        while(true)
+        {
+            if (cnt == 0) break;
+            Instantiate(_resource.Instanticate("Prefab/Enemy"), _spawn.RandomPosition(rangeOjbect), Quaternion.identity);
+            yield return new WaitForSeconds(0.1f);
+            cnt--;
+        }
     }
 }

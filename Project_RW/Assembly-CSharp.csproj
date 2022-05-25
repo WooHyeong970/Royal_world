@@ -57,6 +57,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Cainos/Pixel Art Top Down - Basic/Script/TopDownCharacterController.cs" />
+    <Compile Include="Assets/Scripts/GameManager.cs" />
+    <Compile Include="Assets/Scripts/SpawnManager.cs" />
     <Compile Include="Assets/Polytope Studio/Lowpoly Medieval Demos/Environment_Free/MouseLook.cs" />
     <Compile Include="Assets/Cainos/Pixel Art Top Down - Basic/Script/PropsAltar.cs" />
     <Compile Include="Assets/Cainos/Pixel Art Top Down - Basic/Script/SpriteColorAnimation.cs" />
@@ -64,9 +66,9 @@
     <Compile Include="Assets/Scripts/CameraMovement.cs" />
     <Compile Include="Assets/Scripts/PlayerMove.cs" />
     <Compile Include="Assets/Cainos/Pixel Art Top Down - Basic/Script/LayerTrigger.cs" />
-    <Compile Include="Assets/Cainos/Pixel Art Top Down - Basic/Script/CameraFollow.cs" />
     <Compile Include="Assets/Scripts/UIManager.cs" />
-    <Compile Include="Assets/Scripts/GameManager.cs" />
+    <Compile Include="Assets/Scripts/ResourceManager.cs" />
+    <Compile Include="Assets/Cainos/Pixel Art Top Down - Basic/Script/CameraFollow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Polytope Studio/Lowpoly Medieval Environments/Sources/Shaders/PT_Water_Shader_WebGl.shader" />
